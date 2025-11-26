@@ -22,7 +22,6 @@ Shader "Custom/URP_FireFlipbook"
             Name "Forward"
             Tags { "LightMode"="UniversalForward" }
 
-            // Przezroczystoœæ dla p³omienia
             Blend One One
             ZWrite Off
             Cull Back
@@ -65,21 +64,18 @@ Shader "Custom/URP_FireFlipbook"
             {
                 float totalFrames = _Rows * _Columns;
 
-                // licznik klatek w czasie
                 float frame = floor(_Time.y * _Speed);
                 float frameIndex = fmod(frame, totalFrames);
 
                 float col = fmod(frameIndex, _Columns);
                 float row = floor(frameIndex / _Columns);
 
-                // UV pojedynczej klatki
                 float2 frameUV = IN.uv;
 
                 frameUV.x /= _Columns;
                 frameUV.y /= _Rows;
 
                 frameUV.x += col / _Columns;
-                // jeœli atlas ma pierwszy wiersz na górze, u¿yj tego:
                 frameUV.y += (_Rows - 1 - row) / _Rows;
 
                 half4 colTex = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, frameUV);

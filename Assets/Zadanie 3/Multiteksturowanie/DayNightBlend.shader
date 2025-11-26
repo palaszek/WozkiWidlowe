@@ -57,7 +57,7 @@ Shader "Custom/URP_DayNightBlend"
                 Varyings OUT;
 
                 OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
-                OUT.uv = TRANSFORM_TEX(IN.uv, _DayTex); // zak³adamy te same UV dla obu tekstur
+                OUT.uv = TRANSFORM_TEX(IN.uv, _DayTex);
 
                 return OUT;
             }
