@@ -33,9 +33,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 3
-    - _Shininess: 30
-    - _SpecularIntensity: 0.5
+    - _FresnelPower: 3.05
+    - _Shininess: 54.3
+    - _SpecularIntensity: 0.573
     - _WaveAmplitude: 0.2
     - _WaveFrequency: 2
     - _WaveSpeed: 1
