@@ -86,13 +86,14 @@ float3 GetNormal(float2 uv, float3 N, float3 T)
 
 float4 frag(Varyings i) : SV_Target
 {
+    // Normalka
     float3 N = GetNormal(i.uv, i.normalWS, i.tangentWS);
     float3 V = normalize(i.viewDirWS);
 
     // Pobranie koloru bazowego
     float3 albedo = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, i.uv).rgb * _BaseColor.rgb;
 
-    // G³ówne oœwietlenie
+    // Glowne oswietlenie
     Light mainLight = GetMainLight();
     float3 L = normalize(mainLight.direction);
     float3 H = normalize(L + V);
